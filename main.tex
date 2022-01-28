@@ -1,0 +1,117 @@
+\documentclass[12p,a4paper]{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[MeX]{polski}
+
+% Set page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Podstawowa analiza matematyczna}
+\author{Szymon Milczek}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\begin{abstract}
+\large
+Niniejszy artykuł nie zawiera rozdziałów, ponieważ klasa article nie posiada zdefiniowanej komendy article, zamiast artykułów mamy sekcje, podzielone na podsekcje, podzielone na podpodsekcje.
+
+Podstawą analizy matematycznej (zdaniem autora) są \textbf{pochodne} oraz \textbf{całki}. Jeżeli nabędzie się odpowiednie zrozumienie tych operacji (które konceptualnie są do siebie \textit{bardzo} podobne, lecz w obliczeniach całki są \textit{o wiele} trudniejsze) znacznie ułatwi naukę wielu bardziej skomplikowanych dziedzin matematyki. Albo wyrażając się nieco \textit{brutalniej}, brak zrozumienia czym te operacje są na dobrą sprawę uniemożliwi głębszą edukację, nie tylko analizy matematycznej, ale również fizyki.
+
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Pochodne}
+
+\subsection{Czym właściwie jest pochodna?}
+
+\subsubsection{Problem ze szkolnym wyjaśnieniem \cite{Milczek22}}
+
+W liceum wielu nauczycieli pokaże uczniom następujący wzór
+$$f'(x) = \lim_{x_2 \to x_1} \frac{f(x_2) - f(x_1)}{x_2 - x_1},$$
+określają go mianem \textit{"definicji pochodnej"} i każą rozwiązywać zadania. Uczeń wtedy pozostaje jedynie z myślami\\
+\\
+\textit{- no dobra, ale po co ja to właściwie robię?}\\
+\\
+Które przez moment jeszcze gdzieś obijają się w głowie, zanim uczeń po prostu zaakceptuje ten stan rzeczy i dalej będzie rozwiązywał zadania już bez zmrużenia okiem, bo tego wymaga od niego edukacja.
+
+A życie przecież byłoby znacznie ułatwione, gdyby tylko ktoś wyjaśnił co właściwie taka pochodna mówi nam o równaniu. Wtedy stawałoby się o wiele jaśniejsze co się dzieje na lekcji i do czego taka pochodna może zostać użyta.
+
+\subsubsection{Zrozumieć czym jest pochodna}
+Aby zrozumieć czym jest pochodna trzeba przyjrzeć się definicji, i postarać się ją \underline{wyjaśnić}. Na razie zignorujmy limes. To co robimy, wybieramy 2 wartości, $x_1$ i $x_2$, dobieramy wartości jakie funkcja przyjmuje dla tych $x$, a następnie patrzymy jak zmieniła się wartość funkcji w zależności od zmiany $x$. Mówiąc bardzo luźno, badamy śrędnią zmianę wartości funkcji na odcinku pomiędzy $x_1$ a $x_2$. Im bliżej siebie wybierzemy $x$, tym odcinek na którym badamy zmianę funkcji będzie naturalnie \textit{mniejszy}. Jeżeli obydwa $x$ będą bardzo blisko siebie, chciałoby sie rzec \textit{nieskończenie} blisko, to zbadana zostanie średnia zmiana funkcji na odcinku $x_1 \to x_2$, który będzie tak mały, że można go określić punktem.
+
+\noindent \textbf{Pochodna więc mówi nam z jaką prędkością zmienia się funkcja w danym punkcie.}
+
+\subsection{Lepszy zapis}
+W szkołach uczą zazwyczaj tylko zapisu pochodnej jako $f'(x)$. Wszystko z tym zapisem wydaje się być w porządku, dopóki ktoś nie zapyta:\\
+\textit{Ale właściwie to po jakiej zmiennej pochodą liczymy?}\\
+Istotnie, nie wiemy po jakiej! Tutaj akurat łatwo się domyślić, ponieważ funckja przyjmuje tylko jedną zmienną, ale co jeśli przyjmowałaby ich dwie?
+
+Dlatego uważam że lepszym zapisem jest $\frac{d}{dx}f$, co czasem można też zapisać jako $\frac{df}{dx}$. Nietylko od razu widać po jakiej zmiennej liczona jest pochodne, ale również można zauważyć że sam wzór przedstawia czym jest sam w sobie!
+
+O czym mówię? Proszę się przyjrzeć, w tym zapisie $d$ oznacza że brana jest jakaś mała wartość, $d$ jak $\Delta$, która zawsze jest stosowana dla określenia bardzo małej zmiany wartości, jak np we wzorze $f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}$, który jeśli pod $\frac{f(x + \Delta x) - f(x)}{\Delta x}$ podstawimy $\Delta f$, bo przecież tak oznaczamy małe zmiany wartości, przyjmie postać $f'(x) = \lim_{\Delta x \to 0 \Delta f \to 0} \frac{\Delta f}{\Delta x}$
+Wygląda znajomo? Oczywiście, jest to przecież nasz zapis $\frac{df}{dx}$! Oznacza on \textit{bardzo} małą zmianę wartości funkcji $f(x)$ podzieloną przez \textit{bardzo} małą zmianę wartości $x$.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c}
+Zapis & Wycena \\\hline
+$\frac{df}{dx}$ & Dobry \\
+$\frac{d}{dx}f$ & Lepszy \\
+$f'(x)$ & Zły
+\end{tabular}
+\caption{\label{tab:zapis}Poszczególne sposoby zapisu z oceną od autora}
+\end{table}
+
+\section{Spójny tekst}
+
+\subsection{Za mało punktów za taką robotę \cite{Szymon22}}
+
+Ponieważ za 5 stron spójnego tekstu jest przyznawana tylko $\frac{1}{10}$ wszystkich punktów za zadanie, zajmę się teraz spełnianiem pozostałych podpunktów. Przykro mi, ale po prostu niewarto, tak bardzo jak chciałbym kontynuować swój wywód o analizie matematycznej, potrzebuję snu, a mam tylko 2 dni.
+
+\subsection{Załączanie zdjęcia}
+
+Aby załączyć zdjęcie, należy najpierw posiadać plik ze zdjęciem na dysku, a następnie użyć odpowiedniej komendy.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{frog.jpg}
+\caption{\label{fig:frog}Zdjęcie żabki}
+\end{figure}
+
+\subsection{Obrazek wkomponowany w tekst}
+
+Nie do końca rozumiem o co chodzi, ale chyba mam po prostu dać załączyć obrazek, który nie będzie się wyświetlał na samej górze strony, tylko pomiędzy blokami tekstu?
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{szkic.png}
+\caption{\label{fig:szkic}Autorski szkic kamieni}
+\end{figure}
+Także to by chyba było tyle?
+
+\section{Podsumowanie}
+Oto moje podsumowanie. Parę referencyj do obrazków i do tabelki:\\
+Żabka\ref{fig:frog}\\
+Szkic\ref{fig:szkic}\\
+Tabelka\ref{tab:zapis}\\
+
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
